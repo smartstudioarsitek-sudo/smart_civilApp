@@ -1,0 +1,21 @@
+/* Sembunyikan Menu Burger (titik tiga di kanan atas) */
+#MainMenu {visibility: hidden;}
+
+/* Sembunyikan Footer "Made with Streamlit" */
+footer {visibility: hidden;}
+
+/* Sembunyikan Header bawaan (opsional, agar lebih bersih) */
+header {visibility: hidden;}
+
+/* Sedikit styling untuk judul agar lebih elegan */
+h1 {
+    color: #0E1117;
+    font-family: 'Helvetica Neue', sans-serif;
+    font-weight: 700;
+}
+
+.stButton>button {
+    width: 100%;
+    border-radius: 8px;
+    font-weight: bold;
+}
