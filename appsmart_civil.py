@@ -8,9 +8,13 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. LOAD CSS (Agar tampilan profesional)
-with open('assets/style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+# 2. LOAD CSS (Dengan Pengaman Error)
+try:
+    with open('assets/style.css') as f:
+        st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+except FileNotFoundError:
+    # Jika file tidak ada, aplikasi tetap jalan tapi tanpa style khusus
+    pass
 
 # 3. KONTEN DASHBOARD
 st.title("🏗️ Smart Civil Engineering Dashboard")
@@ -40,4 +44,5 @@ with col2:
 
 # Footer
 st.markdown("---")
+
 st.caption("© 2026 Smart Civil Engineering System | Versi 1.0.0 Alpha")
