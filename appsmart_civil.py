@@ -23,6 +23,25 @@ st.markdown("---")
 col1, col2 = st.columns([2, 1])
 
 with col1:
+    with col1:
+    st.header("Selamat Datang, Engineer!")
+    st.write("""
+    Platform ini dirancang untuk membantu perhitungan teknik sipil yang presisi 
+    serta didukung oleh **Artificial Intelligence** untuk verifikasi desain.
+    """)
+    
+    st.info("💡 Tip: Gunakan menu di samping (Sidebar) atau tombol di bawah ini:")
+
+    # --- TAMBAHAN: TOMBOL NAVIGASI CEPAT ---
+    col_nav1, col_nav2 = st.columns(2)
+    
+    with col_nav1:
+        if st.button("🌊 Buka Analisis Hidrologi", use_container_width=True):
+            st.switch_page("pages/1_🌊_Analisis_Hidrologi.py")
+            
+    with col_nav2:
+        if st.button("🤖 Buka Konsultasi AI", use_container_width=True):
+            st.switch_page("pages/3_🤖_Konsultasi_AI.py")
     st.header("Selamat Datang, Engineer!")
     st.write("""
     Platform ini dirancang untuk membantu perhitungan teknik sipil yang presisi 
@@ -46,3 +65,4 @@ with col2:
 st.markdown("---")
 
 st.caption("© 2026 Smart Civil Engineering System | Versi 1.0.0 Alpha")
+
