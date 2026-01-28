@@ -1,6 +1,6 @@
 import streamlit as st
 
-# 1. KONFIGURASI HALAMAN (Wajib di baris pertama)
+# 1. KONFIGURASI HALAMAN
 st.set_page_config(
     page_title="Smart Civil Engineering",
     page_icon="🏗️",
@@ -8,12 +8,12 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# 2. LOAD CSS (Dengan Pengaman Error)
+# 2. LOAD CSS
 try:
     with open('assets/style.css') as f:
         st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 except FileNotFoundError:
-    pass # Jika file tidak ada, lanjut saja
+    pass
 
 # 3. KONTEN DASHBOARD
 st.title("🏗️ Smart Civil Engineering Dashboard")
@@ -21,7 +21,7 @@ st.markdown("---")
 
 col1, col2 = st.columns([2, 1])
 
-# --- KOLOM KIRI: Sambutan & Navigasi ---
+# --- KOLOM KIRI ---
 with col1:
     st.header("Selamat Datang, Engineer!")
     st.write("""
@@ -29,29 +29,16 @@ with col1:
     serta didukung oleh **Artificial Intelligence** untuk verifikasi desain.
     """)
     
-    st.info("💡 Tip: Gunakan menu di samping (Sidebar) atau tombol cepat di bawah ini:")
-
-    # Tombol Navigasi Cepat
-    col_nav1, col_nav2 = st.columns(2)
+    st.info("💡 Tip: Silakan klik menu di **Sidebar (Kiri Atas)** untuk membuka modul.")
     
-    with col_nav1:
-        if st.button("🌊 Buka Analisis Hidrologi", use_container_width=True):
-            st.switch_page("pages/1_🌊_Analisis_Hidrologi.py")
-            
-    with col_nav2:
-        if st.button("🤖 Buka Konsultasi AI", use_container_width=True):
-            st.switch_page("pages/3_🤖_Konsultasi_AI.py")
+    # KITA HAPUS TOMBOL YANG ERROR, GANTI DENGAN INFO SAJA
+    st.success("✅ Sistem Siap Digunakan. Pilih menu di samping kiri.")
 
-# --- KOLOM KANAN: Status Proyek ---
+# --- KOLOM KANAN ---
 with col2:
     st.subheader("Status Proyek")
-    # Contoh Widget Status (Data Dummy)
     st.metric(label="Proyek Aktif", value="3 Proyek")
     st.metric(label="Verifikasi AI", value="98% Aman", delta="+2%")
-    
-    with st.expander("Lihat Detail Proyek"):
-        st.write("- D.I. Way Sekampung (On Progress)")
-        st.write("- Embung A (Selesai)")
 
 # Footer
 st.markdown("---")
